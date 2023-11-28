@@ -72,6 +72,8 @@ class OrderDetails extends Component {
     isEdit: false,
     isMissing: false,
     isCheck: false,
+    quantity: 0,
+    total: 0,
   }
 
   isChecked = () => {
@@ -86,7 +88,7 @@ class OrderDetails extends Component {
     })
   }
 
-  closeModal = (isEdit, isMissing) => {
+  closeModal = () => {
     this.setState({
       isEdit: false,
       isMissing: false,
@@ -105,6 +107,31 @@ class OrderDetails extends Component {
     })
   }
 
+  minusQuantity = () => {
+    this.setState(prevState => ({
+      quantity: prevState.quantity - 1,
+    }))
+  }
+
+  plusQuantity = () => {
+    this.setState(prevState => ({
+      quantity: prevState.quantity + 1,
+    }))
+  }
+
+  minusTotal = () => {
+    this.setState(prevState => ({
+      total: prevState.total - 1,
+    }))
+    console.log('y')
+  }
+
+  plusTotal = () => {
+    this.setState(prevState => ({
+      total: prevState.total + 1,
+    }))
+  }
+
   render() {
     const {
       isCheck,
@@ -112,6 +139,8 @@ class OrderDetails extends Component {
       initialProductDetails,
       isEdit,
       isMissing,
+      quantity,
+      total,
     } = this.state
 
     return (
@@ -121,10 +150,46 @@ class OrderDetails extends Component {
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title">Missing Product</h5>
+                  <h6>
+                    Chicken Breast fillets Boneless marinated six one raw{' '}
+                  </h6>
                 </div>
                 <div className="modal-body">
-                  <p>{initialProductDetails.productName}..urgent?</p>
+                  <div className="modal-btn">
+                    <button
+                      type="button"
+                      className="btnPlus"
+                      onClick={this.plusQuantity}
+                    >
+                      +
+                    </button>
+                    <p>{quantity}</p>
+
+                    <button
+                      type="button"
+                      className="btnSub"
+                      onClick={this.minusQuantity}
+                    >
+                      -
+                    </button>
+                  </div>
+                  <div className="modal-btn">
+                    <button
+                      type="button"
+                      className="btnPlus"
+                      onClick={this.plusTotal}
+                    >
+                      +
+                    </button>
+                    <p>{total}</p>
+                    <button
+                      type="button"
+                      className="btnSub"
+                      onClick={this.minusTotal}
+                    >
+                      -
+                    </button>
+                  </div>
                 </div>
                 <div className="modal-footer">
                   <button
@@ -133,10 +198,10 @@ class OrderDetails extends Component {
                     data-bs-dismiss="modal"
                     onClick={this.closeModal}
                   >
-                    No
+                    Close
                   </button>
                   <button type="button" className="btn btn-primary">
-                    Yes
+                    Save changes
                   </button>
                 </div>
               </div>
@@ -145,15 +210,51 @@ class OrderDetails extends Component {
         ) : (
           ''
         )}
+
         {isEdit ? (
           <div className="modal" tabIndex="-1">
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title">h</h5>
+                  <h6>
+                    Chicken Breast fillets Boneless marinated six one raw{' '}
+                  </h6>
                 </div>
                 <div className="modal-body">
-                  <p>{productDetails.productName}</p>
+                  <div className="modal-btn">
+                    <button
+                      type="button"
+                      className="btnPlus"
+                      onClick={this.plusQuantity}
+                    >
+                      +
+                    </button>
+                    <p>{quantity}</p>
+                    <button
+                      type="button"
+                      className="btnSub"
+                      onClick={this.minusQuantity}
+                    >
+                      -
+                    </button>
+                  </div>
+                  <div className="modal-btn">
+                    <button
+                      type="button"
+                      className="btnPlus"
+                      onClick={this.plusTotal}
+                    >
+                      +
+                    </button>
+                    <p>{total}</p>
+                    <button
+                      type="button"
+                      className="btnSub"
+                      onClick={this.plusTotal}
+                    >
+                      -
+                    </button>
+                  </div>
                 </div>
                 <div className="modal-footer">
                   <button

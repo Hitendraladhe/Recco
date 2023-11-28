@@ -48,9 +48,9 @@ export const OrderContainer = styled.div`
 
 export const Span = styled.span`
   font-size: 12px;
-  color: whitesmoke;
+  color: #000;
   text-decoration: underline;
-  margin-left: 20px;
+  margin-left: 10px;
 `
 
 export const HeadingH = styled.h4`
@@ -63,8 +63,8 @@ export const HeadingH = styled.h4`
 export const BtnContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 0px;
-  margin-left: 10px;
+  margin-top: 20px;
+  margin-right: 300px;
 `
 
 export const BtnTransparent = styled.button`
