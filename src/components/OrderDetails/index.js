@@ -1,5 +1,9 @@
 import {Component} from 'react'
 
+import Popup from 'reactjs-popup'
+
+import 'reactjs-popup/dist/index.css'
+
 import './index.css'
 
 import Navbar from '../Navbar'
@@ -331,21 +335,143 @@ class OrderDetails extends Component {
                     <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
                   </svg>
                 </Btn>
-                <Btn type="button" onClick={this.crossMissingProduct}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className="bi bi-x-lg cross"
-                    viewBox="0 0 16 16"
+                <div className="popup-container">
+                  <Popup
+                    trigger={
+                      <Btn type="button" onClick={this.crossMissingProduct}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-x-lg cross"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg>
+                      </Btn>
+                    }
                   >
-                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-                  </svg>
-                </Btn>
-                <Btn type="button" onClick={this.editDetails}>
-                  Edit
-                </Btn>
+                    <div>
+                      <div className="modal-body">
+                        <h6>{initialProductDetails.productName}</h6>
+                        <div className="modal-btn">
+                          <button
+                            type="button"
+                            className="btnPlus"
+                            onClick={this.plusQuantity}
+                          >
+                            +
+                          </button>
+                          <p>{quantity}</p>
+
+                          <button
+                            type="button"
+                            className="btnSub"
+                            onClick={this.minusQuantity}
+                          >
+                            -
+                          </button>
+                        </div>
+                        <div className="modal-btn">
+                          <button
+                            type="button"
+                            className="btnPlus"
+                            onClick={this.plusTotal}
+                          >
+                            +
+                          </button>
+                          <p>{total}</p>
+                          <button
+                            type="button"
+                            className="btnSub"
+                            onClick={this.minusTotal}
+                          >
+                            -
+                          </button>
+                        </div>
+
+                        <div className="modal-footer">
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            onClick={this.closeModal}
+                          >
+                            Close
+                          </button>
+                          <button type="button" className="btn btn-primary">
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </Popup>
+                </div>
+                <div className="popup-container">
+                  <Popup
+                    trigger={
+                      <Btn type="button" onClick={this.editDetails}>
+                        Edit
+                      </Btn>
+                    }
+                  >
+                    <div>
+                      <div className="modal-body">
+                        <div className="modal-btn">
+                          <h6>{initialProductDetails.productName}</h6>
+                          <button
+                            type="button"
+                            className="btnPlus"
+                            onClick={this.plusQuantity}
+                          >
+                            +
+                          </button>
+                          <p>{quantity}</p>
+
+                          <button
+                            type="button"
+                            className="btnSub"
+                            onClick={this.minusQuantity}
+                          >
+                            -
+                          </button>
+                        </div>
+                        <div className="modal-btn">
+                          <button
+                            type="button"
+                            className="btnPlus"
+                            onClick={this.plusTotal}
+                          >
+                            +
+                          </button>
+                          <p>{total}</p>
+                          <button
+                            type="button"
+                            className="btnSub"
+                            onClick={this.minusTotal}
+                          >
+                            -
+                          </button>
+                        </div>
+
+                        <div className="modal-footer">
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            onClick={this.closeModal}
+                          >
+                            Close
+                          </button>
+                          <button type="button" className="btn btn-primary">
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </Popup>
+                </div>
               </List>
             ))}
           </ProductDetails>

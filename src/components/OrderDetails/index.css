@@ -10,7 +10,7 @@
   height: 30px;
   width: 30px;
 }
-.modal {
+.modal-body {
   background-color: rgb(175, 221, 157);
   height: 200px;
   width: 400px;
@@ -21,14 +21,9 @@
   align-items: center;
   align-self: center;
   justify-content: start;
-  margin-left: auto;
-  margin-right: auto;
+  margin-right: 300px;
 }
 
-.modal-body {
-  display: flex;
-  flex-direction: row;
-}
 .btnPlus {
   width: 20px;
   height: 20px;
@@ -47,6 +42,7 @@
 }
 h6 {
   font-size: 10px;
+  color: #000;
 }
 
 .modal-btn {
@@ -60,16 +56,20 @@ p {
 
 .btn-primary {
   background-color: blue;
-  color: white;
-  height: 40px;
-  width: 150px;
+  color: #000;
+  height: 30px;
+  width: 60px;
   border-radius: 12px;
   margin-left: 10px;
+  font-size: 10px;
+  color: #ffffff;
 }
 .btn-secondary {
   background-color: crimson;
-  color: white;
-  height: 40px;
-  width: 100px;
+  color: rgb(20, 19, 19);
+  height: 30px;
+  width: 60px;
+  color: #ffffff;
   border-radius: 12px;
+  font-size: 10px;
 }
